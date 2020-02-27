@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <script
+  src="https://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous">
+  </script>
+
     <title>Hackbright Coffee Shop</title>
 
     <!-- Bootstrap links -->
@@ -51,53 +57,32 @@
     let coffeeImage;
     let revenueMessage;
 
-    coffeeImage=document.querySelector('#coffee-image');
-    coffeeImage.setAttribute('src','static/coffee_beans.jpg');
+    coffeeImage = $('#coffee-image')
+    $(coffeeImage).attr('src','static/coffee_beans.jpg');
 
 function makeCoffee() {
-    coffeeImage.setAttribute('src','static/coffee_mug.jpg');
+    coffeeImage.attr('src','static/coffee_mug.jpg');
 }
 
 function makeMachine() {
-    coffeeImage.setAttribute('src','static/coffee_machine.jpg');
+    coffeeImage.attr('src','static/coffee_machine.jpg');
 }
 
 function makeBeans(){
-    coffeeImage.setAttribute('src','static/coffee_beans.jpg');
+    coffeeImage.attr('src','static/coffee_beans.jpg');
 }
 
-const coffeeMug = document.querySelector('#coffee-image');
-coffeeMug.addEventListener('click', () => {
+const coffeeMug = $('#coffee-image');
+coffeeMug.on('click', () => {
     change_pic()
-    // setTimeout(makeMachine(), 1500);
-    // setTimeout(makeCoffee(), 2500);
-    // makeBeans()
 });
 
-    //var timeoutID;
-    //function delayedAlert() {
-    //  timeoutID = window.setTimeout(window.alter, 2*100, 'message');   
-    //}
-
-    //function clearAlert(){
-    //  window.clearTimeout(timeoutID);   could use setInterval()    
-    //}
-
-//var timeoutID = scope.setTimeout(function[, delay, param1, param2, ...]);
-//var timeoutID = scope.setTimeout(function[, delay]);
-//var timeoutID = scope.setTimeout(code[, delay]);
-
-//});
-
-//let timeoutID = scope.setTimeout(makeBeans[, 0]);
-//let timeoutID = scope.setTimeout(makeCoffee[, 2500]);
-//let timeoutID = scope.setTimeout(makeMachine[, 1500]);
 
 function change_pic() {
     /*let coffeeImage =document.querySelector('#coffee-image');*/
-    coffeeImage.setAttribute('src', "static/coffee_machine.jpg");
-    setTimeout(function() {coffeeImage.setAttribute('src','static/coffee_mug.jpg')}, 1500);
-    setTimeout(function() {coffeeImage.setAttribute('src','static/coffee_beans.jpg')}, 4000);
+    coffeeImage.attr('src', "static/coffee_machine.jpg");
+    setTimeout(function() {coffeeImage.attr('src','static/coffee_mug.jpg')}, 1500);
+    setTimeout(function() {coffeeImage.attr('src','static/coffee_beans.jpg')}, 4000);
 
 }
 
