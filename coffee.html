@@ -60,7 +60,7 @@
     coffeeImage = $('#coffee-image')
     $(coffeeImage).attr('src','static/coffee_beans.jpg');
 
-function makeCoffee() {
+/*function makeCoffee() {
     coffeeImage.attr('src','static/coffee_mug.jpg');
 }
 
@@ -69,22 +69,33 @@ function makeMachine() {
 }
 
 function makeBeans(){
-    coffeeImage.attr('src','static/coffee_beans.jpg');
-}
+    coffeeImage.attr('src','static/coffee_beans.jpg');*/
+/*}*/
 
-const coffeeMug = $('#coffee-image');
-coffeeMug.on('click', () => {
-    change_pic()
-});
-
-
-function change_pic() {
+const drinksOrdered = []
+function makeCoffee(drinkType) {
     /*let coffeeImage =document.querySelector('#coffee-image');*/
+    drinksOrdered.push(drinkType)
     coffeeImage.attr('src', "static/coffee_machine.jpg");
     setTimeout(function() {coffeeImage.attr('src','static/coffee_mug.jpg')}, 1500);
     setTimeout(function() {coffeeImage.attr('src','static/coffee_beans.jpg')}, 4000);
+    console.log(drinksOrdered);
+    revenueMessage = $('#revenue').html(revenue());
 
 }
+
+const coffeeMug = $('#coffee-image');
+coffeeMug.on('click', function() { makeCoffee("brew"); });
+
+const espresso = $('#espresso');
+espresso.on('click', function() { makeCoffee("espresso"); });
+
+const latte = $('#latte');
+latte.on('click', function() { makeCoffee("latte"); });
+
+const hotChocolate = $('#hot-chocolate');
+hotChocolate.on('click', function() { makeCoffee("hot chocolate"); });
+
 
     const prices = {
         "brew": 2.05,
@@ -92,6 +103,20 @@ function change_pic() {
         "latte": 4.15,
         "hot chocolate": 2.50
     };
+
+/*revenueMessage = $('#revenue').html(revenue(drinksOrdered))*/
+
+function revenue(){
+    let totalRevenue = 0
+    for (let drink of drinksOrdered) {
+        
+        totalRevenue += prices[drink];
+        
+        /*totalRevenue += 50*/
+    }
+    console.log(totalRevenue);
+    return totalRevenue;
+}
 
 
 </script>
